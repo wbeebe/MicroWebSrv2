@@ -114,7 +114,7 @@ class HttpResponse :
         self._mws2            = microWebSrv2
         self._request         = request
         self._xasCli          = request.XAsyncTCPClient
-        self._headers         = { }
+        self._headers         = microWebSrv2.DefaultHeaders
         self._allowCaching    = False
         self._acAllowOrigin   = None
         self._contentType     = None

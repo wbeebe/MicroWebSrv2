@@ -93,6 +93,7 @@ class MicroWebSrv2 :
         self._notFoundURL     = None
         self._allowAllOrigins = False
         self._corsAllowAll    = False
+        self._defaultHeaders  = { }
         self._onLogging       = None
         self._xasSrv          = None
         self._xasPool         = None
@@ -525,6 +526,18 @@ class MicroWebSrv2 :
         if not isinstance(value, bool) :
             raise ValueError('"CORSAllowAll" must be a boolean.')
         self._corsAllowAll = value
+
+    # ------------------------------------------------------------------------
+
+    @property
+    def DefaultHeaders(self) :
+        return self._defaultHeaders.copy()
+
+    @DefaultHeaders.setter
+    def DefaultHeaders(self, value) :
+        if not isinstance(value, dict) :
+            raise ValueError('"DefaultHeaders" must be a dict.')
+        self._defaultHeaders = value.copy()
 
     # ------------------------------------------------------------------------
 
